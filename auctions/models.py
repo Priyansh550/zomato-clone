@@ -30,7 +30,7 @@ class Listing(models.Model):
     title = models.CharField(max_length=200, verbose_name="Title")
     description = models.TextField(verbose_name="Description")
     price = models.DecimalField(decimal_places=2, verbose_name="Starting Bid", max_digits=15)
-    image = models.URLField(blank=True, verbose_name="Image URL", null=True)
+    image = models.URLField(blank=True, verbose_name="Image URL", null=True, max_length=500)
     category = models.CharField(choices=LISTING_CATEGORIES, blank=True, verbose_name="Category", max_length=200, null=True)
     active = models.BooleanField(default=True)
     winner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
